@@ -449,7 +449,7 @@ class DMSDocument extends File implements DMSDocumentInterface
      */
     public function Icon($ext)
     {
-        return "/resources/vendor/sunnysideup/dms/client/images/app_icons/{$ext}_32.png";
+        return "/resources/vendor/heyday/silverstripe-dms/client/images/app_icons/{$ext}_32.png";
     }
 
     public function Link($versionID = 'latest')
