@@ -170,17 +170,13 @@ class DMSDocumentController extends Controller
      * Get a document's ID from a "friendly" URL slug containing a numeric ID and slugged title
      *
      * @param  string $slug
-     * @return int
-     * @throws InvalidArgumentException if an invalid format is provided
+     * @return int|false
      */
     protected function getDocumentIdFromSlug($slug)
     {
         $parts = (array) sscanf($slug, '%d-%s');
         $id = array_shift($parts);
-        if (is_numeric($id)) {
-            return (int) $id;
-        }
-        throw new InvalidArgumentException($slug . ' is not a valid DMSDocument URL');
+        return is_numeric($id) ? (int) $id : false;
     }
 
     /**
