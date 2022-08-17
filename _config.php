@@ -34,7 +34,8 @@ if ($config->get(DMSDocument_versions::class, 'enable_versions')) {
 }
 
 // add dmsassets folder to file system sync exclusion
-if (strpos($config->get(DMS::class, 'folder_name'), 'assets/') === 0) {
+$dmsFolder = $config->get(DMS::class, 'folder_name');
+if ($dmsFolder && strpos($dmsFolder, 'assets/') === 0) {
     $folderName = substr($config->get(DMS::class, 'folder_name'), 7);
     // Config::modify()->update(Filesystem::class, 'sync_blacklisted_patterns', array("/^" . $folderName . "$/i",));
 }

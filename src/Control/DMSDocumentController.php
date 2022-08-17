@@ -188,7 +188,7 @@ class DMSDocumentController extends Controller
     protected function sendFile($path, $mime, $name, $disposition)
     {
         header('Content-Type: ' . $mime);
-        header('Content-Length: ' . filesize($path), null);
+        header('Content-Length: ' . filesize($path), false);
         if (!empty($mime) && $mime != "text/html") {
             header('Content-Disposition: '.$disposition.'; filename="'.addslashes($name).'"');
         }

@@ -9,7 +9,6 @@ use SilverStripe\Assets\File;
 use SilverStripe\Assets\Folder;
 use SilverStripe\Assets\Image;
 use SilverStripe\Security\Member;
-use Sunnysideup\DMS\Model\DMSDocument;
 use SilverStripe\Security\Group;
 use SilverStripe\Security\Permission;
 use SilverStripe\ORM\DB;
@@ -484,7 +483,7 @@ class DMSDocument extends File implements DMSDocumentInterface
      */
     public function getExtension()
     {
-        return strtolower(pathinfo($this->Filename, PATHINFO_EXTENSION));
+        return strtolower(pathinfo($this->Filename ?? '', PATHINFO_EXTENSION));
     }
 
 
